@@ -2,17 +2,26 @@ Siga esses Passos e será possível abrir o site localmente
 
 1* Certifique-se de ter instalado o node.js e o git
 //
+
 2* Clonar o Repositório git clone https://github.com/PesoLucas/Pedro-Penante-Desafio-NextJS-e-Pagina-o-e-conex-o-.git
 //
+
 3* instale as dependencias npm install
 //
+
 4* execute o servidor npm run dev
 //
+
 5* acesse pelo vscode ou pelo navegador pelo http://localhost:3000/ ou similar
 ////
+
 API utilizada: DummuJSON //// link: https://dummyjson.com/docs
 ////
+
+
 PERGUNTAS TEÓRICAS DE REFLEXÃO
+
+
 //1* pergunta//
 1 Por que a busca inicial dos dados na rota /explorar foi feita em um Server Component em vez de um Client Component?
 
