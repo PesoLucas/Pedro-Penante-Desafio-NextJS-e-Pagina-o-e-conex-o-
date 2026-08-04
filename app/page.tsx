@@ -3,6 +3,7 @@ import Image from "next/image";
 import Card from "@/Components/Card";
 import Quadrado from "@/Components/Quadrado";
 import ContactSection from "@/Components/ContactSection";
+import Header from "@/Components/Header";
 
 let tamanhoIcon: number;
 tamanhoIcon = 32;
@@ -10,6 +11,7 @@ tamanhoIcon = 32;
 export default function Home() {
   return (
     <div className="w-full bg-[#6e0a0a]">
+      <Header/>
       {/* 1. SEÇÃO HERO / INÍCIO */}
       <section
         id="inicio"

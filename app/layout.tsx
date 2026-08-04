@@ -16,18 +16,13 @@ export const metadata: Metadata = {
   description: "A melhor escola de música da América Latina",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className="scroll-smooth">
-      {/* 3. Aplicamos a classe poppins.className no <body> */}
-      <body className={`${poppins.className} antialiased bg-black text-white`}>
-        <Header />
+      <body className="bg-[#121214] text-white">
+        {/* REMOVA O HEADER DAQUI */}
         {children}
-        <Footer />
+        <Footer/>
       </body>
     </html>
   );

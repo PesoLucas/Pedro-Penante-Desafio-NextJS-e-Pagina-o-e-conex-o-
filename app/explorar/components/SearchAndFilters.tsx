@@ -1,53 +1,59 @@
-"use client"
+"use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState, useTransition } from "react";
 
-interface SearchAndFiltersProps{
-    categories: string[];
+interface SearchAndFiltersProps {
+  categories: string[];
 }
+
+// 📌 1. COLOQUE O DICIONÁRIO AQUI (Fora do componente)
+const categoryLabels: Record<string, string> = {
+  history: "Guitarra",
+  crime: "Vocal",
+  magical: "Bateria",
+  fiction: "Baixo",
+  classic: "Sampling",
+  love: "Teclado",
+  mystery: "NuMetal",
+  english: "Thrash Metal",
+  american: "Black Metal",
+  french: "Heavy Metal",
+  memories: "White Metal",
+};
 
 export default function SearchAndFilters({ categories }: SearchAndFiltersProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [isPending, startTransition] = useTransition();
 
-  // 1. Pega os valores que já estão na URL (se houver)
   const currentSearch = searchParams.get("q") || "";
   const currentCategory = searchParams.get("tag") || "";
-
-  // 2. Estado local para o input de texto
   const [searchTerm, setSearchTerm] = useState(currentSearch);
 
-  // 3. Função disparada ao enviar o formulário de pesquisa
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     const params = new URLSearchParams(searchParams.toString());
-
     if (searchTerm) {
       params.set("q", searchTerm);
     } else {
       params.delete("q");
     }
-    params.set("page", "1"); // Reseta para a página 1 ao pesquisar
-
+    params.set("page", "1");
     startTransition(() => {
       router.push(`/explorar?${params.toString()}`);
     });
   };
 
-  // 4. Função disparada ao clicar em uma categoria
   const handleCategorySelect = (tag: string) => {
     const params = new URLSearchParams(searchParams.toString());
-
     if (tag === currentCategory) {
-      params.delete("tag"); // Se clicar na mesma categoria, remove o filtro
+      params.delete("tag");
     } else {
       params.set("tag", tag);
-      params.delete("q"); // Limpa a busca por texto ao escolher categoria
+      params.delete("q");
     }
     params.set("page", "1");
-
     startTransition(() => {
       router.push(`/explorar?${params.toString()}`);
     });
@@ -55,7 +61,7 @@ export default function SearchAndFilters({ categories }: SearchAndFiltersProps) 
 
   return (
     <div className="flex flex-col gap-6">
-      {/* BARRA DE PESQUISA */}
+      {/* Barra de Pesquisa */}
       <form onSubmit={handleSearch} className="relative w-full max-w-xl">
         <input
           type="text"
@@ -72,13 +78,17 @@ export default function SearchAndFilters({ categories }: SearchAndFiltersProps) 
         </button>
       </form>
 
-      {/* BOTÕES DE CATEGORIA (TAGS) */}
+      {/* Botões de Categoria */}
       <div className="flex flex-wrap gap-2 items-center">
         <span className="text-xs uppercase font-extrabold text-zinc-400 mr-2">
           Categorias:
         </span>
         {categories.map((tag) => {
           const isActive = currentCategory === tag;
+          
+          // 📌 2. USE A TRADUÇÃO AQUI:
+          const label = categoryLabels[tag] || tag;
+
           return (
             <button
               key={tag}
@@ -89,7 +99,8 @@ export default function SearchAndFilters({ categories }: SearchAndFiltersProps) 
                   : "bg-[#27272a] text-zinc-300 hover:bg-zinc-700 hover:text-amber-500"
               }`}
             >
-              {tag} {isActive && "✕"}
+              {/* Exibe o nome amigável (ex: Guitarra) em vez de history */}
+              {label} {isActive && "✕"}
             </button>
           );
         })}
