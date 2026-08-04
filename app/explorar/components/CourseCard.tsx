@@ -4,7 +4,7 @@ import { Post } from "@/types/course";
 
 interface CourseCardProps {
   post: Post;
-  onDelete?: (id: number) => void; // 👈 Callback para apagar
+  onDelete?: (id: number) => void; 
 }
 
 const categoryLabels: Record<string, string> = {
@@ -32,7 +32,6 @@ export default function CourseCard({ post, onDelete }: CourseCardProps) {
   const handleDelete = async () => {
     if (confirm(`Deseja realmente apagar o curso "${post.title}"?`)) {
       try {
-        // 📡 Requisição DELETE simulada para a API DummyJSON
         await fetch(`https://dummyjson.com/posts/${post.id}`, {
           method: "DELETE",
         });
@@ -40,7 +39,6 @@ export default function CourseCard({ post, onDelete }: CourseCardProps) {
         console.error("Erro na API:", err);
       }
 
-      // Dispara a remoção no componente pai
       if (onDelete) {
         onDelete(post.id);
       }
@@ -50,13 +48,12 @@ export default function CourseCard({ post, onDelete }: CourseCardProps) {
   return (
     <div className="bg-[#18181b] border border-zinc-800 rounded-2xl overflow-hidden hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between p-6 shadow-xl group relative">
       <div>
-        {/* CABEÇALHO DO CARD (Tag e Botão Excluir) */}
         <div className="flex items-center justify-between mb-4">
           <span className="px-3 py-1 bg-zinc-800 text-amber-500 font-extrabold text-[10px] uppercase rounded-full border border-zinc-700">
             {tagLabel}
           </span>
 
-          {/* BOTÃO APAGAR (Aparece se for um curso dinâmico/deletável) */}
+          {/*botão de apagar*/}
           {onDelete && (
             <button
               type="button"
@@ -69,18 +66,15 @@ export default function CourseCard({ post, onDelete }: CourseCardProps) {
           )}
         </div>
 
-        {/* TÍTULO */}
         <h2 className="text-xl font-extrabold text-white group-hover:text-amber-500 transition-colors line-clamp-2 uppercase">
           {post.title}
         </h2>
 
-        {/* DESCRIÇÃO */}
         <p className="text-zinc-400 text-sm font-light mt-3 line-clamp-3 leading-relaxed">
           {post.body}
         </p>
       </div>
 
-      {/* BOTÃO */}
       <div className="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
         <button
           type="button"

@@ -12,12 +12,12 @@ export default function Home() {
   return (
     <div className="w-full bg-[#6e0a0a]">
       <Header/>
-      {/* 1. SEÇÃO HERO / INÍCIO */}
+      {/*inicio*/}
       <section
         id="inicio"
         className="relative w-full bg-[#6e0a0a] pt-32 pb-20 px-6 md:px-12 flex items-start overflow-hidden"
       >
-        {/* CONTAINER DA IMAGEM DE FUNDO (NA DIREITA) */}
+        {/*imagemLK*/}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <div className="absolute top-0 right-0 w-full md:w-[60%] h-full">
             <Image
@@ -29,11 +29,10 @@ export default function Home() {
             />
           </div>
 
-          {/* GRADIENTES PARA O TEXTO FICAR 100% LEGÍVEL NA ESQUERDA */}
+          {/*gradiente*/}
           <div className="absolute inset-0 bg-gradient-to-r from-[#6e0a0a] via-[#6e0a0a]/100 to-transparent z-10" />
         </div>
 
-        {/* CONTEÚDO DA HERO */}
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           <div className="max-w-2xl">
             <h1 className="text-4xl md:text-6xl font-extrabold uppercase leading-tight tracking-tight text-white">
@@ -107,7 +106,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. SEÇÃO CURSOS */}
+      {/*curso*/}
       <section id="cursos" className="bg-black py-16 text-center">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
@@ -159,7 +158,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. SEÇÃO SOBRE*/}
+      {/*sobre*/}
       <section id="sobre" className="bg-[#18181b] pt-20 pb-10 px-6 md:px-12">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* LADO ESQUERDO: TEXTOS */}
@@ -186,7 +185,7 @@ export default function Home() {
             </p>
           </div>
 
-          {/* LADO DIREITO: GRID 2x2 USANDO O COMPONENTE QUADRADO */}
+          {/*quadrados*/}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <Quadrado
               imageSrc="/relogio vermelho.png"
@@ -219,7 +218,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. SEÇÃO CONTATO */}
+      {/*contato*/}
       <ContactSection />
     </div>
   );

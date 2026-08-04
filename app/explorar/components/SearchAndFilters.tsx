@@ -7,7 +7,6 @@ interface SearchAndFiltersProps {
   categories: string[];
 }
 
-// 📌 1. COLOQUE O DICIONÁRIO AQUI (Fora do componente)
 const categoryLabels: Record<string, string> = {
   history: "Guitarra",
   crime: "Vocal",
@@ -61,7 +60,7 @@ export default function SearchAndFilters({ categories }: SearchAndFiltersProps) 
 
   return (
     <div className="flex flex-col gap-6">
-      {/* Barra de Pesquisa */}
+      {/*pesquisa*/}
       <form onSubmit={handleSearch} className="relative w-full max-w-xl">
         <input
           type="text"
@@ -78,7 +77,7 @@ export default function SearchAndFilters({ categories }: SearchAndFiltersProps) 
         </button>
       </form>
 
-      {/* Botões de Categoria */}
+      {/*categorias*/}
       <div className="flex flex-wrap gap-2 items-center">
         <span className="text-xs uppercase font-extrabold text-zinc-400 mr-2">
           Categorias:
@@ -86,7 +85,6 @@ export default function SearchAndFilters({ categories }: SearchAndFiltersProps) 
         {categories.map((tag) => {
           const isActive = currentCategory === tag;
           
-          // 📌 2. USE A TRADUÇÃO AQUI:
           const label = categoryLabels[tag] || tag;
 
           return (
@@ -99,7 +97,6 @@ export default function SearchAndFilters({ categories }: SearchAndFiltersProps) 
                   : "bg-[#27272a] text-zinc-300 hover:bg-zinc-700 hover:text-amber-500"
               }`}
             >
-              {/* Exibe o nome amigável (ex: Guitarra) em vez de history */}
               {label} {isActive && "✕"}
             </button>
           );

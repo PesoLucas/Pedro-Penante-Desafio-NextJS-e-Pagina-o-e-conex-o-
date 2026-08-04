@@ -6,24 +6,22 @@ export default function Footer() {
     <footer className="w-full bg-white text-[#6e0a0a] py-12 px-6 md:px-16 border-t border-zinc-700">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
         
-        {/* LADO ESQUERDO: LOGO, SLOGAN E ÍCONES SOCIAIS */}
+        {/* esquerda*/}
         <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-3">
-          {/* Logo da MetalKingdom */}
+          {/*logo*/}
           <div className="relative w-40 h-16">
             <Image
-              src="/metal kingdom resumido vermelho cortado.png" // Troque pelo caminho correto da sua logo branca/transparente
+              src="/metal kingdom resumido vermelho cortado.png" 
               alt="MetalKingdom Logo"
               fill
               className="object-contain object-center md:object-left"
             />
           </div>
 
-          {/* Slogan */}
           <p className="text-xs md:text-sm font-bold max-w-xs leading-snug">
             Desenvolvendo talentos, criando histórias e mudando a música desde 2010
           </p>
 
-          {/* ÍCONES REDES SOCIAIS (Ficam Laranja no Hover) */}
           <div className="flex items-center gap-4 pt-2">
             {/* Instagram */}
             <a
@@ -59,13 +57,12 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* LADO DIREITO: NAVEGAÇÃO INTERNA DA PÁGINA */}
+        {/*direita*/}
         <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-2">
           <h4 className="font-extrabold text-base uppercase text-[#6e0a0a] mb-1">
             Metal Kingdom
           </h4>
 
-          {/* Link para Rolar até Cursos */}
           <Link
             href="#cursos"
             className="text-sm font-bold hover:text-amber-500 transition-colors duration-200 cursor-pointer"
@@ -73,7 +70,6 @@ export default function Footer() {
             Cursos
           </Link>
 
-          {/* Link para Rolar até Sobre */}
           <Link
             href="#sobre"
             className="text-sm font-bold hover:text-amber-500 transition-colors duration-200 cursor-pointer"

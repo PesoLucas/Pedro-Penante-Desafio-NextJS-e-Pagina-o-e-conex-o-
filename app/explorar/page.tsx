@@ -11,6 +11,20 @@ interface PageProps {
   }>;
 }
 
+const categoryLabels: Record<string, string> = {
+  history: "Guitarra",
+  crime: "Vocal",
+  magical: "Bateria",
+  fiction: "Baixo",
+  classic: "Sampling",
+  love: "Teclado",
+  mystery: "NuMetal",
+  english: "Thrash Metal",
+  american: "Black Metal",
+  french: "Heavy Metal",
+  memories: "White Metal",
+};
+
 export default async function ExplorarPage({ searchParams }: PageProps) {
   const resolvedParams = await searchParams;
   const searchQuery = resolvedParams.q || "";
@@ -30,9 +44,12 @@ export default async function ExplorarPage({ searchParams }: PageProps) {
     "memories",
   ];
 
+  const categoryTitle = selectedTag
+    ? categoryLabels[selectedTag] || selectedTag
+    : "";
+
   return (
     <div className="min-h-screen bg-[#121214] text-white flex">
-      {/* SIDEBAR LATERAL */}
       <aside className="w-64 bg-[#18181b] border-r border-zinc-800 p-6 hidden lg:flex flex-col justify-between shrink-0 h-screen sticky top-0">
         <div className="space-y-8">
           <Link href="/" className="block">
@@ -65,7 +82,6 @@ export default async function ExplorarPage({ searchParams }: PageProps) {
         </div>
       </aside>
 
-      {/* ÁREA PRINCIPAL */}
       <main className="flex-1 p-6 md:p-10 overflow-y-auto">
         <div className="mb-8">
           <SearchAndFilters categories={availableTags} />
@@ -78,7 +94,7 @@ export default async function ExplorarPage({ searchParams }: PageProps) {
             </span>
             <h1 className="text-3xl md:text-4xl font-black uppercase tracking-tight">
               {selectedTag
-                ? `Categoria: ${selectedTag}`
+                ? `Categoria: ${categoryTitle}`
                 : searchQuery
                 ? `Busca: "${searchQuery}"`
                 : "Todos os Cursos"}
@@ -90,7 +106,6 @@ export default async function ExplorarPage({ searchParams }: PageProps) {
           </div>
         </div>
 
-        {/* COMPONENTE DA LISTA DINÂMICA */}
         <CourseList searchQuery={searchQuery} selectedTag={selectedTag} />
       </main>
     </div>

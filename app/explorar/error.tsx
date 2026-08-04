@@ -10,7 +10,6 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    // Registra o erro no console para depuração
     console.error("Erro na página /explorar:", error);
   }, [error]);
 
@@ -23,7 +22,7 @@ export default function Error({
         Não foi possível se conectar à API da DummyJSON no momento.
       </p>
       
-      {/* Botão que tenta recarregar a página/busca novamente */}
+      {/*botão de recarregar*/}
       <button
         onClick={() => reset()}
         className="px-6 py-3 bg-[#b90000] text-white font-bold uppercase rounded-xl hover:bg-red-700 transition-colors cursor-pointer"

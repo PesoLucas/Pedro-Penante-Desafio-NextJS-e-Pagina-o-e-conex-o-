@@ -18,10 +18,8 @@ export default function CourseList({ searchQuery, selectedTag }: CourseListProps
   }, []);
 
   const handleDeleteCourse = (id: number) => {
-    // 1. Remove do LocalStorage
     deleteCourseFromStorage(id);
 
-    // 2. Remove do estado da tela na hora
     setCourses((prev) => prev.filter((course) => course.id !== id));
   };
 
@@ -52,7 +50,7 @@ export default function CourseList({ searchQuery, selectedTag }: CourseListProps
         <CourseCard
           key={post.id}
           post={post}
-          onDelete={handleDeleteCourse} // 👈 Passa a ação de exclusão
+          onDelete={handleDeleteCourse} 
         />
       ))}
     </div>

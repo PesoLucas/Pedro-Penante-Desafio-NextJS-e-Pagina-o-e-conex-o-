@@ -17,7 +17,6 @@ export default function CreatePostModal() {
     setMessage("");
 
     try {
-      // 1. Simula o envio para a API DummyJSON
       const res = await fetch("https://dummyjson.com/posts/add", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -27,15 +26,13 @@ export default function CreatePostModal() {
       const data = await res.json();
 
       if (res.ok) {
-        // 2. Cria o objeto do novo curso
         const newCourse: Post = {
-          id: Date.now(), // ID único temporário
+          id: Date.now(), 
           title,
           body,
           tags: [tag],
         };
 
-        // 3. Salva no localStorage do navegador
         const savedCustomCourses = JSON.parse(
           localStorage.getItem("custom_courses") || "[]"
         );
@@ -46,13 +43,12 @@ export default function CreatePostModal() {
 
         setMessage(`🤘 Curso criado com sucesso! (ID: ${data.id})`);
 
-        // 4. Recarrega a página para exibir o novo curso na lista
         setTimeout(() => {
           setIsOpen(false);
           setTitle("");
           setBody("");
           setMessage("");
-          window.location.reload(); // Atualiza a tela com o novo curso!
+          window.location.reload(); 
         }, 1200);
       } else {
         setMessage("❌ Falha ao criar o curso.");
