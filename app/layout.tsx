@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className="scroll-smooth">
       {/* 3. Aplicamos a classe poppins.className no <body> */}
       <body className={`${poppins.className} antialiased bg-black text-white`}>
         <Header />

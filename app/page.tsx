@@ -9,7 +9,7 @@ tamanhoIcon = 32;
 
 export default function Home() {
   return (
-    <div className="w-full bg-[#18181b]">
+    <div className="w-full bg-[#6e0a0a]">
       {/* 1. SEÇÃO HERO / INÍCIO */}
       <section
         id="inicio"
@@ -39,13 +39,13 @@ export default function Home() {
               <span className="text-amber-500">Lenda</span>
             </h1>
 
-            <p className="mt-4 font-semibold text-zinc-200 text-lg md:text-xl max-w-lg">
+            <p className="mt-4 font-semibold text-white text-lg md:text-xl max-w-lg">
               A Melhor Escola de Musica da américa latina desde 2016
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
               <Button
-                text="inscreva-se já"
+                text="VEJA NOSSAS AULAS"
                 href="/explorar"
                 variant="heroGray"
               />
@@ -157,7 +157,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. SEÇÃO SOBRE (Removido o border-t) */}
+      {/* 3. SEÇÃO SOBRE*/}
       <section id="sobre" className="bg-[#18181b] pt-20 pb-10 px-6 md:px-12">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* LADO ESQUERDO: TEXTOS */}
@@ -179,7 +179,7 @@ export default function Home() {
               A <span className="text-amber-500 font-extrabold uppercase">MELHOR</span> da america latina há 10 anos
             </h3>
 
-            <p className="text-zinc-300 font-semibold text-base md:text-lg leading-relaxed max-w-xl">
+            <p className=" text-white font-semibold text-base md:text-lg leading-relaxed max-w-xl">
               A MetalKingdom é a maior escola de música da América Latina desde 2016, oferecemos aulas gravadas especializadas no universo do metal. Nossa metodologia permite que alunos aprendam no próprio ritmo, com cursos focados em instrumentos, técnica e performance dentro do gênero.
             </p>
           </div>
